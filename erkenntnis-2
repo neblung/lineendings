@@ -1,0 +1,12 @@
+Einführung der .gitattributes
+
+Neue Klone haben nun die gewünschten Lineendings
+Und zwar unabhängig von autocrlf
+Allerdings ist das Lineending auch für alle Dateien in der .gitattributes geregelt
+
+Ein bestehender Klon wird nicht automatisch aktualisiert.
+Ein   git checkout-index --force --all   hat auch nicht den gewünschten Effekt
+Die Empfehlung von hier https://stackoverflow.com/a/57301915/4774054 hat local changes verursacht
+    (die ich nicht wegbkommen habe)
+
+
