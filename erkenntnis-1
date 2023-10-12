@@ -1,0 +1,62 @@
+Ausgangslage:
+- Repo ohne .gitattributes
+- Dateien wurden unter Linux ohne Setting core.autocrlf (i.f. autocrlf) commitet und gepusht
+
+=> Inhalt des Klons ist abhängig vom Setting autocrlf
+Unter Windows:
+- Klon mit autocrlf=true
+    Alle Dateien haben CRLF
+- Klon mit autocrlf=false
+    Dateien haben die Lineendings, mit denen sie gepusht wurden (bislang also die beabsichtigten)
+
+# Windows-Klon mit autocrlf=false
+fneblun1@P7670-009WX MINGW64 ~/repos/lineendings (main)
+$ ./dump.sh
+--- dump.sh ---
+0000000   #   !   /   u   s   r   /   b   i   n   /   e   n   v       b
+0000020   a   s   h  \n  \n   f   o   r       i       i   n       *   .
+0000040   *   ;       d   o       e   c   h   o       "   -   -   -
+0000060   $   i       -   -   -   "   ;       o   d       -   c       $
+0000100   i   ;       d   o   n   e  \n  \n
+0000111
+--- x.txt ---
+0000000   .   t   x   t       f   i   l   e  \n   i   n   t   e   n   d
+0000020   e   d       t   o       h   a   v   e       t   h   e       O
+0000040   S   '   s       l   i   n   e       e   n   d   i   n   g   s
+0000060  \n  \n
+0000062
+--- x.u ---
+0000000   .   u       f   i   l   e  \n   s   h   o   u   l   d       h
+0000020   a   v   e       l   f  \n  \n
+0000030
+--- x.w ---
+0000000   .   w       f   i   l   e  \r  \n   s   h   o   u   l   d
+0000020   h   a   v   e       c   r   l   f  \r  \n  \r  \n
+0000035
+
+
+# Windows-Klon mit autocrlf=true
+fneblun1@P7670-009WX MINGW64 ~/repos/lineendigs-with-autocrlf-true (main)
+$ ./dump.sh
+--- dump.sh ---
+0000000   #   !   /   u   s   r   /   b   i   n   /   e   n   v       b
+0000020   a   s   h  \r  \n  \r  \n   f   o   r       i       i   n
+0000040   *   .   *   ;       d   o       e   c   h   o       "   -   -
+0000060   -       $   i       -   -   -   "   ;       o   d       -   c
+0000100       $   i   ;       d   o   n   e  \r  \n  \r  \n
+0000115
+--- x.txt ---
+0000000   .   t   x   t       f   i   l   e  \r  \n   i   n   t   e   n
+0000020   d   e   d       t   o       h   a   v   e       t   h   e
+0000040   O   S   '   s       l   i   n   e       e   n   d   i   n   g
+0000060   s  \r  \n  \r  \n
+0000065
+--- x.u ---
+0000000   .   u       f   i   l   e  \r  \n   s   h   o   u   l   d
+0000020   h   a   v   e       l   f  \r  \n  \r  \n
+0000033
+--- x.w ---
+0000000   .   w       f   i   l   e  \r  \n   s   h   o   u   l   d
+0000020   h   a   v   e       c   r   l   f  \r  \n  \r  \n
+0000035
+
